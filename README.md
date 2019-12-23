@@ -1,7 +1,7 @@
 # Operator-SDK-Pod-Notification
 This is a project for getting notifications from logs of Kubernetes Operator that when a new pod is deployed.
 
-##Operator-SDK
+## Operator-SDK
 Operator SDK is a tool provided by Operator Framework that allows us to deploy Kubernetes Operators. These operators are used to deploy workloads via Kubernetes API i.e. it helps in deploying workloads by using services of Kubernetes. Read more from the actual link of Operator-SDK.
 
 This project has a 'podset-operator' that contains in own file structure. Now, the main aim of this project is to get a notification in form of text in the logs of the operator pod when any new pod is added to the cluster. This notification is hardcoded in the podset_controller.go file in pkg/controller/podset/. It displays a custom message, name of the pod and details of the pod including its name, namespace and labels.
