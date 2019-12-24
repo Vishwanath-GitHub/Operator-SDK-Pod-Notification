@@ -6,7 +6,7 @@ Operator SDK is a tool provided by Operator Framework that allows us to deploy K
 
 This project has a 'podset-operator' that contains in own file structure. Now, the main aim of this project is to get a notification in form of text in the logs of the operator pod when any new pod is added to the cluster. This notification is hardcoded in the podset_controller.go file in pkg/controller/podset/. It displays a custom message, name of the pod and details of the pod including its name, namespace and labels.
 
-Please read the official documentation of Operator-SDK to understand its file structure with Go files.
+Please read the official documentation of Operator-SDK to understand its file structure with Go files, how to build the operator with step-by-step process and deploy it.
 
 Changes made in the Operator:
 * In podset_types.go file, the contents of the struct{} is changed so that it we can get Pod Names. This file is under pkg/apis/app/v1alpha1/.
@@ -14,6 +14,7 @@ Changes made in the Operator:
 * In podset_controller.go file, a new log variable is made named as "globalLog". This variable is then used where the pod actually gets created. So, this notification in logs of operator is written in Reconcile() function of this Go file. While creation of the pod, the custom text, name of pod and details of it are also shown in the logs of the operator pod along with other in-built logs. Use "kubectl logs" with the operator pod after deploying operator.yaml. 
 
 IMP: &coreV1.Pod{} contains all the basic details of the pod that can be consumed by other functions.
+IMP: The log variable "globalLog" takes compulsorily 3 arguments i.e. the custom text string, a key and a value. Not mentioning any of these arguments will result in this error: "odd number of arguments passed as key-value pairs for logging"
 
 Actual Operator SDK Practical Documentation: https://docs.okd.io/latest/operators/osdk-getting-started.html
 
