@@ -11,10 +11,10 @@ Please read the official documentation of Operator-SDK to understand its file st
 Changes made in the Operator:
 * In podset_types.go file, the contents of the struct{} is changed so that it we can get Pod Names. This file is under pkg/apis/app/v1alpha1/.
 * In operator.yaml, the image name is changed to the custom image we have built and pushed to "quay.io" via Docker.
-* In podset_controller.go file, a new log variable is made named as "globalLog". This variable is then used where the pod actually gets created. So, this notification in logs of operator is written in Reconcile() function of this Go file. While creation of the pod, the custom text, name of pod and details of it are also shown in the logs of the operator pod along with other in-built logs. Use "kubectl logs" with the operator pod after deploying operator.yaml. 
+* In podset_controller.go file, a new log variable is made named as `globalLog`. This variable is then used where the pod actually gets created. So, this notification in logs of operator is written in `Reconcile()` function of this Go file. While creation of the pod, the custom text, name of pod and details of it are also shown in the logs of the operator pod along with other in-built logs. Use "kubectl logs" with the operator pod after deploying operator.yaml. 
 
-IMP: &coreV1.Pod{} contains all the basic details of the pod that can be consumed by other functions.
-IMP: The log variable "globalLog" takes compulsorily 3 arguments i.e. the custom text string, a key and a value. Not mentioning any of these arguments will result in this error: "odd number of arguments passed as key-value pairs for logging"
+IMP: `&coreV1.Pod{}` contains all the basic details of the pod that can be consumed by other functions.
+IMP: The log variable `globalLog` takes compulsorily 3 arguments i.e. the custom text string, a key and a value. Not mentioning any of these arguments will result in this error: "odd number of arguments passed as key-value pairs for logging"
 
 Actual Operator SDK Practical Documentation: https://docs.okd.io/latest/operators/osdk-getting-started.html
 
